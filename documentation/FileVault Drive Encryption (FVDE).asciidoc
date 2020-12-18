@@ -2151,7 +2151,7 @@ number of values?
 
 === Metadata block data type 0x0304
 
-Metadata block data type 0x0304 contains information about [yellow-background]*TODO: describe*
+Metadata block data type 0x0304 contains information about [yellow-background]*TODO: describe*[yellow-background]*Fusion drive logical volume translation*
 
 The metadata block data is variable in size and consists of:
 
@@ -2169,7 +2169,7 @@ consists of:
 [cols="1,1,1,5",options="header"]
 |===
 | 0 | 8 | | [yellow-background]*Unknown*
-| 8 | 8 | | [yellow-background]*Unknown*
+| 8 | 8 | | [yellow-background]*Unknown*[yellow-background]*Logical volume block number*
 | 16 | 4 | | Number of blocks
 | 20 | 4 | | [yellow-background]*Unknown* +
 [yellow-background]*0 if not set e.g. non-removable?*
@@ -2177,8 +2177,9 @@ consists of:
 | 28 | 4 | | [yellow-background]*Unknown*
 | 32 | 4 | | Block number +
 Contains the first block number relative from the start of the Core Storage volume of the logical volume data +
-[yellow-background]*0 if not set e.g. non-removable?*
-| 36 | 4 | | [yellow-background]*Unknown*
+[yellow-background]*0 if not set e.g. non-removable?*[yellow-background]*Physical volume block number*
+| 36 | 2 | | [yellow-background]*Unknown*
+| 38 | 2 | | [yellow-background]*Physical volume index*
 |===
 
 ....
