@@ -2256,15 +2256,15 @@ consists of:
 [cols="1,1,1,5",options="header"]
 |===
 | 0 | 8 | | [yellow-background]*Unknown*
-| 8 | 8 | | [yellow-background]*Unknown*
+| 8 | 8 | | [yellow-background]?logical volume block number?
 | 16 | 4 | | Number of blocks
 | 20 | 4 | | [yellow-background]*Unknown* +
-[yellow-background]*0 if not set e.g. non-removable?*
+[yellow-background]*if 0x0400000 block is encrypted*
 | 24 | 4 | | [yellow-background]*Unknown*
 | 28 | 4 | | [yellow-background]*Unknown*
 | 32 | 4 | | Block number +
 Contains the first block number relative from the start of the Core Storage volume of the logical volume data +
-[yellow-background]*0 if not set e.g. non-removable?*
+[yellow-background]*0 if not set e.g. non-removable?**?CoreStorage partition block number?*
 | 36 | 4 | | [yellow-background]*Unknown*
 |===
 
@@ -2407,7 +2407,7 @@ See section: <<data_area_type,Data area type>>
 | Value | Identifier | Description
 | 0x0000000000000009 (9) | | [yellow-background]*Unknown (LV (encrypted and unencrypted) ?*
 | 0x000000000000000a (10) | | [yellow-background]*Unknown (LV (encrypted) ?*
-| 0xfffffffffffffffb (-5) | | Unencrypted metadata
+| 0xfffffffffffffffb (-5) | | Unencrypted metadata [yellow-background]*?protected area (in encrypting/decrypting process it's used as encryption/decryption buffer)?*
 | 0xfffffffffffffffc (-4) | | Volume header
 | 0xfffffffffffffffd (-3) | | Encrypted metadata
 |===
@@ -2474,8 +2474,8 @@ consists of:
 [cols="1,1,1,5",options="header"]
 |===
 | Offset | Size | Value | Description
-| 0 | 8 | | Number of blocks +
-| 8 | 8 | | Block number +
+| 0 | 8 | | Number of blocks + [yellow-background]*Start block number of protected area from 0x405*
+| 8 | 8 | | Block number + [yellow-background]*Length in blocks of protected area from 0x405*
 Contains the first block number relative from the start of the Core Storage volume of the encrypted logical volume data
 |===
 
