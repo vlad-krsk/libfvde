@@ -355,6 +355,7 @@ Contains a CRC-32 of bytes 8 to 8192 +
 | 16 | 8 | | [yellow-background]*Unknown (block group)*
 | 24 | 8 | | [yellow-background]*Unknown* +
 [yellow-background]*Chain block number or 0 if not set ?*
+(index in the table of block 0x0016)
 | 32 | 8 | | Block number +
 The block number relative from the start of the metadata or encrypted metadata
 | 40 | 8 | | [yellow-background]*Unknown* +
