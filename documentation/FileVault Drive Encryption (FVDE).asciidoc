@@ -399,7 +399,7 @@ Including the metadata block header
 | 80 | 24 | | [yellow-background]*Unknown (Empty values)*
 | 104 | 4 | 0x0000000c | [yellow-background]*Unknown*
 | 108 | 4 | 0x0000000d | [yellow-background]*Unknown*
-| 112 | 4 | 0x00000040 | [yellow-background]*Unknown*
+| 112 | 4 | 0x00000040 | [yellow-background]*Unknown*(meta cluster size in meta blocks)
 | 116 | 4 | 0x00010030 | [yellow-background]*Unknown*
 | 120 | 4 | 0x00000001 | [yellow-background]*Unknown*
 | 124 | 4 | 0x00010001 | [yellow-background]*Unknown*
@@ -424,14 +424,15 @@ Including the metadata block header
 [yellow-background]*0x02 => decrypting*
 |===
 
+Last critical transactions table. Every record points to meta block 0x0013 starting transaction with corresponding number.
 The metadata block data type 0x0011 unknown value is 24 bytes in size and
 consists of:
 
 [cols="1,1,1,5",options="header"]
 |===
-| 0 | 8 | | [yellow-background]*Unknown (metadata block group)*
-| 8 | 8 | | [yellow-background]*Unknown*
-| 16 | 8 | | [yellow-background]*Unknown*
+| 0 | 8 | | [yellow-background]*Unknown (metadata block group)* (transaction number)
+| 8 | 8 | | [yellow-background]*Unknown* (cluster number)
+| 16 | 8 | | [yellow-background]*Unknown* (offset in cluster)
 |===
 
 ....
